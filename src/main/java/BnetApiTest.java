@@ -1,10 +1,12 @@
 import com.squareup.moshi.Moshi;
-import model.MatchHistory;
+import model.Match;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class BnetApiTest {
 
@@ -13,6 +15,9 @@ public class BnetApiTest {
 
 
     public static void main(String[] args) {
+        // okhttp to make connect
+        // retrofit to turn into oject
+        // moshi to turn json into pogo; used by retrofit
 
         // http://www.vogella.com/tutorials/JavaLibrary-OkHttp/article.html
         OkHttpClient client = new OkHttpClient();
@@ -48,41 +53,50 @@ public class BnetApiTest {
 
         System.out.println(results);
 
+        Match asdf = Match.create("Seeds of Aiur",
+                "TWOS",
+                "LOSS",
+                "FASTER",
+                1515554710);
+        System.out.println(asdf.getType());
+
+        List<Match> a = new ArrayList<Match>();
+        a.add(asdf);
+        a.add(asdf);
+        a.add(asdf);
+
+        System.out.println(a.get(0).getType());
+
         Moshi moshi = new Moshi.Builder().build();
-        // JsonAdapter<BlackjackHand> jsonAdapter = moshi.adapter(BlackjackHand.class);
+        // JsonAdapter<AutoValue_MatchHistory> jsonAdapter = moshi.adapter(AutoValue_MatchHistory.class);
+
+        // Match[] matches = null;
         //
-        // BlackjackHand blackjackHand = jsonAdapter.fromJson(json);
-        // System.out.println(blackjackHand);
+        // try {
+        //     matches = jsonAdapter.fromJson(results);
+        // } catch(IOException ioe) {
+        //     ioe.printStackTrace();
+        // }
+        //
+        // System.out.println(matches[0].toString());
 
 
 
-        // okhttp to make connect
-        // retrofit to turn into oject
-        // moshi to turn json into pogo; used by retrofit
 
+        // asdf.type();
 
-        // HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+        // MatchHistory asdf = MatchHistory.builder()
+        //         .setMap("Seeds of Aiur")
+        //         .setType("TWOS")
+        //         .setDecision("LOSS")
+        //         .setSpeed("FASTER")
+        //         .setDate(1515554710)
+        //         .build();
 
-
+        // asdf.getType();
+        //
+        // System.o
+        // System.out.println(asdf.getT  );
 
     }
-
-    MatchHistory asdf = MatchHistory.create("Seeds of Aiur",
-            "TWOS",
-            "LOSS",
-            "FASTER",
-            1515554710);
-
-    // MatchHistory asdf = MatchHistory.builder()
-    //         .setMap("Seeds of Aiur")
-    //         .setType("TWOS")
-    //         .setDecision("LOSS")
-    //         .setSpeed("FASTER")
-    //         .setDate(1515554710)
-    //         .build();
-
-    // asdf.getType();
-    //
-    // System.o
-    // System.out.println(asdf.getT  );
 }

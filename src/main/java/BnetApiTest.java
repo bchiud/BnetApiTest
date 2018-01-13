@@ -1,3 +1,4 @@
+import api.MatchHistoryService;
 import com.squareup.moshi.JsonAdapter;
 import com.squareup.moshi.Moshi;
 import java.io.IOException;
@@ -25,38 +26,11 @@ public class BnetApiTest {
         */
         Config config = ConfigService.ConfigService();
 
-        // okhttp to make connect
-        // retrofit to turn into object
-        // moshi to turn json into pojo; used by retrofit
-
-        OkHttpClient client = new OkHttpClient();
-
-        // https://dev.battle.net/io-docs
-        Request request = new Request.Builder()
-                .url("https://us.api.battle.net/sc2/profile/4014615/1/LieZ/matches?locale=" + config.locale() + "&apikey=" + config.apiKey())
-                .build();
-
-        Response response = null;
-        String results = null;
-        try {
-            response = client.newCall(request).execute();
-            results = response.body().string();
-        } catch(IOException ioe) {
-            ioe.printStackTrace();
-        }
-
-        Moshi moshi = new Moshi.Builder()
-                .add(AdapterFactory.create())
-                .build();
-        JsonAdapter<MatchHistory> matchHistoryJsonAdapter = moshi.adapter(MatchHistory.class);
-
-        MatchHistory matchHistory = null;
-        try {
-            matchHistory = matchHistoryJsonAdapter.fromJson(results);
-        } catch(IOException ioe) {
-            ioe.printStackTrace();
-        }
-
+        /*
+        get match history data
+        */
+        MatchHistory matchHistory = MatchHistoryService.getMatchHistory(config);
         System.out.println(matchHistory);
+
     }
 }

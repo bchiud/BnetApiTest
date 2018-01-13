@@ -12,7 +12,7 @@ import utils.AdapterFactory;
 
 public class MatchHistoryService {
 
-    public MatchHistory MatchHistoryService(Config config) {
+    public static MatchHistory getMatchHistory(Config config) {
 
         OkHttpClient client = new OkHttpClient();
 

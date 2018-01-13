@@ -1,17 +1,12 @@
 package model;
 
+import java.util.List;
+
 import com.google.auto.value.AutoValue;
+
 import com.squareup.moshi.Json;
 import com.squareup.moshi.JsonAdapter;
 import com.squareup.moshi.Moshi;
-
-import java.util.List;
-
-/*
-import com.google.gson.Gson;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.SerializedName;
-*/
 
 @AutoValue
 public abstract class MatchHistory {
@@ -36,18 +31,9 @@ public abstract class MatchHistory {
     }
     */
 
-    /*
-    // autoValueGson
-    public static TypeAdapter<MatchHistory> typeAdapter(Gson gson) {
-        return new AutoValue_MatchHistory.GsonTypeAdapter(gson);
-    }
-    */
-
-    /*
     // autoValueMoshi
     public static JsonAdapter<MatchHistory> jsonAdapter(Moshi moshi) {
         return new AutoValue_MatchHistory.MoshiJsonAdapter(moshi);
     }
-    */
 
 }

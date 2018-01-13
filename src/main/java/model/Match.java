@@ -1,15 +1,10 @@
 package model;
 
 import com.google.auto.value.AutoValue;
+
 import com.squareup.moshi.Json;
 import com.squareup.moshi.JsonAdapter;
 import com.squareup.moshi.Moshi;
-
-/*
-import com.google.gson.Gson;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.SerializedName;
-*/
 
 @AutoValue
 public abstract class Match {
@@ -43,13 +38,6 @@ public abstract class Match {
         public abstract Builder setSpeed(String value);
         public abstract Builder setDate(double value);
         public abstract Match build();
-    }
-    */
-
-    /*
-    // autoValueGson
-    public static TypeAdapter<Match> typeAdapter(Gson gson) {
-        return new AutoValue_Match.GsonTypeAdapter(gson);
     }
     */
 

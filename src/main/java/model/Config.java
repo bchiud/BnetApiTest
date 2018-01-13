@@ -11,8 +11,8 @@ public abstract class Config {
     public abstract String locale();
     public abstract String profileName();
     public abstract Integer profileNumber();
+    public abstract Integer realmNumber();
     public abstract String region();
-    public abstract Integer regionNumber();
 
     public static Builder builder() {
         return new AutoValue_Config.Builder();
@@ -26,8 +26,10 @@ public abstract class Config {
         public abstract Builder setLocale(String value);
         public abstract Builder setProfileNumber(Integer value);
         public abstract Builder setProfileName(String value);
+        public abstract Builder setRealmNumber(Integer value);
         public abstract Builder setRegion(String value);
-        public abstract Builder setRegionNumber(Integer value);
         public abstract Config build();
     }
+
+    public enum region {cn, us, eu, kr, tw}
 }

@@ -28,7 +28,7 @@ public class ConfigService {
                 .setProfileNumber(Integer.valueOf(prop.getProperty("profileNumber")))
                 .setProfileName(prop.getProperty("profileName"))
                 .setRegion(prop.getProperty("region"))
-                .setRegionNumber(Integer.valueOf(prop.getProperty("regionNumber")))
+                .setRealmNumber(Integer.valueOf(prop.getProperty("realmNumber")))
                 .build();
 
         return config;

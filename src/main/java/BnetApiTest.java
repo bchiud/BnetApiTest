@@ -1,22 +1,9 @@
-import api.MatchHistoryService;
-import com.squareup.moshi.JsonAdapter;
-import com.squareup.moshi.Moshi;
-import java.io.IOException;
-import java.net.URL;
-
 import model.Config;
 import model.MatchHistory;
-import okhttp3.HttpUrl;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
-import utils.AdapterFactory;
+import utils.BnetApi;
 import utils.ConfigService;
 
 public class BnetApiTest {
-
-    private static String apiKey;
-    private static String locale;
 
     public static void main(String[] args) {
 
@@ -26,11 +13,14 @@ public class BnetApiTest {
         */
         Config config = ConfigService.ConfigService();
 
+        BnetApi<MatchHistory> mH = new BnetApi<MatchHistory>(MatchHistory.class, config);
+        System.out.println(mH.callApi());
+
         /*
-        get match history data
+        // TODO: this json has categories at bottom. need to revise data model
+        BnetApi<AchievementList> aL = new BnetApi<AchievementList>(AchievementList.class, config);
+        System.out.println(aL.callApi());
         */
-        MatchHistory matchHistory = MatchHistoryService.getMatchHistory(config);
-        System.out.println(matchHistory);
 
     }
 }

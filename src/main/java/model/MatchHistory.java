@@ -6,7 +6,6 @@ import com.squareup.moshi.JsonAdapter;
 import com.squareup.moshi.Moshi;
 import java.util.List;
 
-
 @AutoValue
 public abstract class MatchHistory {
 
@@ -17,7 +16,7 @@ public abstract class MatchHistory {
     }
 
     @AutoValue.Builder
-    public abstract static class Builder {
+    public static abstract class Builder {
         public abstract Builder setMatches(List<Match> matches);
         public abstract MatchHistory build();
     }

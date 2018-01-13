@@ -1,5 +1,9 @@
 import java.io.IOException;
 
+import com.squareup.moshi.JsonAdapter;
+import com.squareup.moshi.Moshi;
+import model.MatchHistory;
+import model.MyAdapterFactory;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -29,53 +33,21 @@ public class BnetApiTest {
             ioe.printStackTrace();
         }
 
-        System.out.println(results);
-
-        /*
-        Match aMatch = Match.create("Seeds of Aiur",
-                "TWOS",
-                "LOSS",
-                "FASTER",
-                1515554710);
-        */
-
-        /*
-        Match aMatch = Match.builder()
-                .setMap("Seeds of Aiur")
-                .setType("TWOS")
-                .setDecision("LOSS")
-                .setSpeed("FASTER")
-                .setDate(1515554710)
-                .build();
-        */
-
-        /*
-        System.out.println(aMatch.getType());
-
-        List<Match> matches = new ArrayList<Match>();
-        matches.add(aMatch);
-        matches.add(aMatch);
-        matches.add(aMatch);
-
-
-        MatchHistory mh = MatchHistory.create(matches);
-        */
-
-        /*
-        MatchHistory mh = MatchHistory.builder()
-                .setMatches(matches)
-                .build();
-        */
-
-        /*
-        System.out.println(mh.getMatches().get(0).getType());
-        */
-
         // moshi
-        // Moshi moshi = new Moshi.Builder()
-        //         .add(MyAdapterFactory.create())
-        //         .build();
-        // JsonAdapter<MatchHistory> jsonAdapter = moshi.adapter(MatchHistory.class);
+        Moshi moshi = new Moshi.Builder()
+                .add(MyAdapterFactory.create())
+                .build();
+        JsonAdapter<MatchHistory> jsonAdapter = moshi.adapter(MatchHistory.class);
+
+        MatchHistory matchHistory = null;
+        try {
+            matchHistory = jsonAdapter.fromJson(results);
+        } catch(IOException ioe) {
+            ioe.printStackTrace();
+        }
+
+        System.out.println(matchHistory);
+
 
     }
 }

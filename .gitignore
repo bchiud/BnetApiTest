@@ -7,19 +7,26 @@ eclipsebin
 # Idea
 .idea
 *.iml
+annotations
 classes
 
-bin
-gen
+# Gradle
+.gradle
 build
-out
-lib
+gradlew.bat
+local.properties
 
-target
+# Maven
 pom.xml.*
 release.properties
+target
 
+# Build
+bin
+gen
+lib
 obj
+out
 
 #MacOS
 .DS_Store

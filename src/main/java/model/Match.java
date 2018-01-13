@@ -20,7 +20,6 @@ public abstract class Match {
     @Json(name = "speed") public abstract String speed();
     @Json(name = "date") public abstract double date();
 
-    /*
     // autoValue
     public static Match create(String map,
                                String type,
@@ -29,7 +28,6 @@ public abstract class Match {
                                double date) {
         return new AutoValue_Match(map, type, decision, speed, date);
     }
-    */
 
     /*
     // autoValueBuilder

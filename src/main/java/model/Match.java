@@ -1,7 +1,6 @@
 package model;
 
 import com.google.auto.value.AutoValue;
-
 import com.squareup.moshi.Json;
 import com.squareup.moshi.JsonAdapter;
 import com.squareup.moshi.Moshi;
@@ -15,7 +14,7 @@ public abstract class Match {
     @Json(name = "speed") public abstract String speed();
     @Json(name = "date") public abstract double date();
 
-    // autoValue
+    /*
     public static Match create(String map,
                                String type,
                                String decision,
@@ -23,9 +22,8 @@ public abstract class Match {
                                double date) {
         return new AutoValue_Match(map, type, decision, speed, date);
     }
+    */
 
-    /*
-    // autoValueBuilder
     public static Builder builder() {
         return new AutoValue_Match.Builder();
     }
@@ -39,9 +37,7 @@ public abstract class Match {
         public abstract Builder setDate(double value);
         public abstract Match build();
     }
-    */
 
-    // autoValueMoshi
     public static JsonAdapter<Match> jsonAdapter(Moshi moshi) {
         return new AutoValue_Match.MoshiJsonAdapter(moshi);
     }

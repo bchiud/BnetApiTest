@@ -1,5 +1,7 @@
 package utils;
 
+import model.Config;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -7,10 +9,7 @@ import java.util.Properties;
 
 public class ConfigService {
 
-    private String apiKey;
-    private String locale;
-
-    public ConfigService() {
+    public static Config ConfigService() {
         InputStream in = null;
         Properties prop = new Properties();
 
@@ -21,16 +20,18 @@ public class ConfigService {
             ioe.printStackTrace();
         }
 
-        apiKey = prop.getProperty("apiKey");
-        locale = prop.getProperty("locale");
-    }
+        Config config = Config.builder()
+                .setApiKey(prop.getProperty("apiKey"))
+                .setGame(prop.getProperty("game"))
+                .setLadderNumber( prop.containsKey("ladderNumber") ? Integer.valueOf(prop.getProperty("ladderNumber")) : null )
+                .setLocale(prop.getProperty("locale"))
+                .setProfileNumber(Integer.valueOf(prop.getProperty("profileNumber")))
+                .setProfileName(prop.getProperty("profileName"))
+                .setRegion(prop.getProperty("region"))
+                .setRegionNumber(Integer.valueOf(prop.getProperty("regionNumber")))
+                .build();
 
-    public String getApiKey() {
-        return apiKey;
-    }
-
-    public String getLocale() {
-        return locale;
+        return config;
     }
 
 }

@@ -1,7 +1,11 @@
 import com.squareup.moshi.JsonAdapter;
 import com.squareup.moshi.Moshi;
 import java.io.IOException;
+import java.net.URL;
+
+import model.Config;
 import model.MatchHistory;
+import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -17,20 +21,19 @@ public class BnetApiTest {
 
         /*
         get api key and locale
+        setup bnet params
         */
-        ConfigService configService = new ConfigService();
-        apiKey = configService.getApiKey();
-        locale = configService.getLocale();
+        Config config = ConfigService.ConfigService();
 
         // okhttp to make connect
-        // retrofit to turn into oject
-        // moshi to turn json into pogo; used by retrofit
+        // retrofit to turn into object
+        // moshi to turn json into pojo; used by retrofit
 
         OkHttpClient client = new OkHttpClient();
 
         // https://dev.battle.net/io-docs
         Request request = new Request.Builder()
-                .url("https://us.api.battle.net/sc2/profile/4014615/1/LieZ/matches?locale=" + locale + "&apikey=" + apiKey)
+                .url("https://us.api.battle.net/sc2/profile/4014615/1/LieZ/matches?locale=" + config.locale() + "&apikey=" + config.apiKey())
                 .build();
 
         Response response = null;

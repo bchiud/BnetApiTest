@@ -10,7 +10,6 @@ import java.util.List;
 @AutoValue
 public abstract class MatchHistory {
 
-    public abstract List<Match> getMatches();
     @Json(name = "matches") public abstract List<Match> getMatches();
 
     public static Builder builder() {

@@ -16,7 +16,7 @@ import com.squareup.moshi.Moshi;
 @AutoValue
 public abstract class MatchHistory {
 
-    @SerializedName("matches") public abstract List<Match> getMatches();
+    public abstract List<Match> getMatches();
 
     // autoValue
     public static MatchHistory create(List<Match> matches) {
@@ -36,15 +36,4 @@ public abstract class MatchHistory {
     }
     */
 
-    // autoValueGson
-    public static TypeAdapter<MatchHistory> typeAdapter(Gson gson) {
-        return new AutoValue_MatchHistory.GsonTypeAdapter(gson);
-    }
-
-    /*
-    // autoValueMoshi
-    public static JsonAdapter<MatchHistory> jsonAdapter(Moshi moshi) {
-        return new AutoValue_MatchHistory.MoshiJsonAdapter(moshi);
-    }
-    */
 }

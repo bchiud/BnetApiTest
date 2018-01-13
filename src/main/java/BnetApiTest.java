@@ -69,13 +69,5 @@ public class BnetApiTest {
 
         System.out.println(mh.getMatches().get(0).getType());
 
-        /*
-        // moshi
-        Moshi moshi = new Moshi.Builder()
-                .add(MyAdapterFactory.create())
-                .build();
-        JsonAdapter<MatchHistory> jsonAdapter = moshi.adapter(MatchHistory.class);
-        */
-
     }
 }

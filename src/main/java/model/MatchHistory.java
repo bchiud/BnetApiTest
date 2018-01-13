@@ -1,22 +1,22 @@
 package model;
 
 import com.google.auto.value.AutoValue;
-import com.google.gson.Gson;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.SerializedName;
+import com.squareup.moshi.Json;
+import com.squareup.moshi.JsonAdapter;
+import com.squareup.moshi.Moshi;
 
 import java.util.List;
 
 /*
-import com.squareup.moshi.Json;
-import com.squareup.moshi.JsonAdapter;
-import com.squareup.moshi.Moshi;
+import com.google.gson.Gson;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.SerializedName;
 */
 
 @AutoValue
 public abstract class MatchHistory {
 
-    @SerializedName("matches") public abstract List<Match> getMatches();
+    @Json(name = "matches") public abstract List<Match> getMatches();
 
     // autoValue
     public static MatchHistory create(List<Match> matches) {
@@ -36,10 +36,12 @@ public abstract class MatchHistory {
     }
     */
 
+    /*
     // autoValueGson
     public static TypeAdapter<MatchHistory> typeAdapter(Gson gson) {
         return new AutoValue_MatchHistory.GsonTypeAdapter(gson);
     }
+    */
 
     /*
     // autoValueMoshi
@@ -47,4 +49,5 @@ public abstract class MatchHistory {
         return new AutoValue_MatchHistory.MoshiJsonAdapter(moshi);
     }
     */
+
 }

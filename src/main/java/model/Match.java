@@ -1,27 +1,26 @@
 package model;
 
 import com.google.auto.value.AutoValue;
-
-import com.google.auto.value.AutoValue;
-import com.google.gson.Gson;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.SerializedName;
-
-/*
 import com.squareup.moshi.Json;
 import com.squareup.moshi.JsonAdapter;
 import com.squareup.moshi.Moshi;
+
+/*
+import com.google.gson.Gson;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.SerializedName;
 */
 
 @AutoValue
 public abstract class Match {
 
-    @SerializedName("map") public abstract String getMap();
-    @SerializedName("type") public abstract String getType();
-    @SerializedName("decision") public abstract String getDecision();
-    @SerializedName("speed") public abstract String getSpeed();
-    @SerializedName("date") public abstract double getDate();
+    @Json(name = "map") public abstract String map();
+    @Json(name = "type") public abstract String type();
+    @Json(name = "decision") public abstract String decision();
+    @Json(name = "speed") public abstract String speed();
+    @Json(name = "date") public abstract double date();
 
+    /*
     // autoValue
     public static Match create(String map,
                                String type,
@@ -30,6 +29,7 @@ public abstract class Match {
                                double date) {
         return new AutoValue_Match(map, type, decision, speed, date);
     }
+    */
 
     /*
     // autoValueBuilder
@@ -48,16 +48,16 @@ public abstract class Match {
     }
     */
 
+    /*
     // autoValueGson
     public static TypeAdapter<Match> typeAdapter(Gson gson) {
         return new AutoValue_Match.GsonTypeAdapter(gson);
     }
+    */
 
-    /*
     // autoValueMoshi
     public static JsonAdapter<Match> jsonAdapter(Moshi moshi) {
         return new AutoValue_Match.MoshiJsonAdapter(moshi);
     }
-    */
 
 }

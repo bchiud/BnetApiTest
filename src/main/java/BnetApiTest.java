@@ -1,12 +1,8 @@
-import model.Match;
-import model.MatchHistory;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class BnetApiTest {
 
@@ -35,11 +31,13 @@ public class BnetApiTest {
 
         System.out.println(results);
 
+        /*
         Match aMatch = Match.create("Seeds of Aiur",
                 "TWOS",
                 "LOSS",
                 "FASTER",
                 1515554710);
+        */
 
         /*
         Match aMatch = Match.builder()
@@ -51,6 +49,7 @@ public class BnetApiTest {
                 .build();
         */
 
+        /*
         System.out.println(aMatch.getType());
 
         List<Match> matches = new ArrayList<Match>();
@@ -60,6 +59,7 @@ public class BnetApiTest {
 
 
         MatchHistory mh = MatchHistory.create(matches);
+        */
 
         /*
         MatchHistory mh = MatchHistory.builder()
@@ -67,15 +67,15 @@ public class BnetApiTest {
                 .build();
         */
 
-        System.out.println(mh.getMatches().get(0).getType());
-
         /*
-        // moshi
-        Moshi moshi = new Moshi.Builder()
-                .add(MyAdapterFactory.create())
-                .build();
-        JsonAdapter<MatchHistory> jsonAdapter = moshi.adapter(MatchHistory.class);
+        System.out.println(mh.getMatches().get(0).getType());
         */
+
+        // moshi
+        // Moshi moshi = new Moshi.Builder()
+        //         .add(MyAdapterFactory.create())
+        //         .build();
+        // JsonAdapter<MatchHistory> jsonAdapter = moshi.adapter(MatchHistory.class);
 
     }
 }

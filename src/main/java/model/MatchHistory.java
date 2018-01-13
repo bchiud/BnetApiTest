@@ -1,17 +1,8 @@
 package model;
 
-import com.google.auto.value.AutoValue;
-import com.google.gson.Gson;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.SerializedName;
-
 import java.util.List;
 
-/*
-import com.squareup.moshi.Json;
-import com.squareup.moshi.JsonAdapter;
-import com.squareup.moshi.Moshi;
-*/
+import com.google.auto.value.AutoValue;
 
 @AutoValue
 public abstract class MatchHistory {

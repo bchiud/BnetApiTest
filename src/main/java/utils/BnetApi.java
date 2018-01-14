@@ -3,6 +3,7 @@ package utils;
 import com.squareup.moshi.JsonAdapter;
 import com.squareup.moshi.Moshi;
 import model.Config;
+import model.LadderCharacter;
 import model.Match;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
@@ -38,8 +39,6 @@ public class BnetApi<T> {
                 .host(config.region() + ".api.battle.net")
                 .addPathSegment(config.game());
 
-        boolean dummy;
-
         switch(clazz.getName().replace("model.", "")) {
             case "Profile": // https://us.api.battle.net/sc2/profile/4014615/1/LieZ/?locale=en_US&apikey=
                 urlBuilder.addPathSegment("profile")
@@ -62,7 +61,7 @@ public class BnetApi<T> {
                         .addPathSegment(config.profileName())
                         .addPathSegment("matches");
                 break;
-            case "Ladder": // https://us.api.battle.net/sc2/ladder/264387?locale=en_US&apikey=
+            case "LadderList": // https://us.api.battle.net/sc2/ladder/264387?locale=en_US&apikey=
                 urlBuilder.addPathSegment("ladder")
                         .addPathSegment(config.ladderNumber().toString());
                 break;
@@ -73,6 +72,9 @@ public class BnetApi<T> {
                 urlBuilder.addPathSegments("data/rewards");
                 break;
         }
+
+
+
 
         URL url = urlBuilder.addQueryParameter("locale", config.locale())
                 .addQueryParameter("apikey", config.apiKey())
@@ -95,9 +97,12 @@ public class BnetApi<T> {
             ioe.printStackTrace();
         }
 
+        // System.out.println(results);
+
         Moshi moshi = new Moshi.Builder()
                 .add(AdapterFactory.create())
                 .build();
+        System.out.println(clazz.equals(LadderCharacter.class));
         JsonAdapter<T> jsonAdapter = moshi.adapter(clazz);
 
         T tOut = null;

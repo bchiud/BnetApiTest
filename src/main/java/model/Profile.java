@@ -7,7 +7,7 @@ import com.squareup.moshi.Moshi;
 import org.jetbrains.annotations.Nullable;
 
 @AutoValue
-public abstract class LadderCharacter {
+public abstract class Profile {
 
     @Json(name = "id") public abstract int id();
     @Json(name = "realm") public abstract int realm();
@@ -17,7 +17,7 @@ public abstract class LadderCharacter {
     @Json(name = "profilePath") public abstract String profilePath();
 
     public static Builder builder() {
-        return new AutoValue_LadderCharacter.Builder();
+        return new AutoValue_Profile.Builder();
     }
 
     @AutoValue.Builder
@@ -28,11 +28,11 @@ public abstract class LadderCharacter {
         public abstract Builder setClanName(String value);
         public abstract Builder setClanTag(String value);
         public abstract Builder setProfilePath(String value);
-        public abstract LadderCharacter build();
+        public abstract Profile build();
     }
 
-    public static JsonAdapter<LadderCharacter> jsonAdapter(Moshi moshi) {
-        return new AutoValue_LadderCharacter.MoshiJsonAdapter(moshi);
+    public static JsonAdapter<Profile> jsonAdapter(Moshi moshi) {
+        return new AutoValue_Profile.MoshiJsonAdapter(moshi);
     }
 
 }

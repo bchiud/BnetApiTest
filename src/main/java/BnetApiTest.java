@@ -1,8 +1,5 @@
-import model.Config;
-import model.LadderCharacter;
-import model.LadderList;
-import model.Match;
-import model.MatchHistory;
+import model.*;
+import model.Ladder;
 import utils.BnetApi;
 import utils.ConfigService;
 
@@ -19,7 +16,7 @@ public class BnetApiTest {
         BnetApi<MatchHistory> mH = new BnetApi<MatchHistory>(MatchHistory.class, config);
         System.out.println(mH.callApi());
 
-        BnetApi<LadderList> lL = new BnetApi<LadderList>(LadderList.class, config);
+        BnetApi<Ladder> lL = new BnetApi<Ladder>(Ladder.class, config);
         System.out.println(lL.callApi());
 
         /*

@@ -61,7 +61,7 @@ public class BnetApi<T> {
                         .addPathSegment(config.profileName())
                         .addPathSegment("matches");
                 break;
-            case "LadderList": // https://us.api.battle.net/sc2/ladder/264387?locale=en_US&apikey=
+            case "Ladder": // https://us.api.battle.net/sc2/ladder/264387?locale=en_US&apikey=
                 urlBuilder.addPathSegment("ladder")
                         .addPathSegment(config.ladderNumber().toString());
                 break;
@@ -72,9 +72,6 @@ public class BnetApi<T> {
                 urlBuilder.addPathSegments("data/rewards");
                 break;
         }
-
-
-
 
         URL url = urlBuilder.addQueryParameter("locale", config.locale())
                 .addQueryParameter("apikey", config.apiKey())
@@ -102,7 +99,6 @@ public class BnetApi<T> {
         Moshi moshi = new Moshi.Builder()
                 .add(AdapterFactory.create())
                 .build();
-        System.out.println(clazz.equals(LadderCharacter.class));
         JsonAdapter<T> jsonAdapter = moshi.adapter(clazz);
 
         T tOut = null;

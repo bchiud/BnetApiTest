@@ -3,14 +3,11 @@ package utils;
 import com.squareup.moshi.JsonAdapter;
 import com.squareup.moshi.Moshi;
 import model.Config;
-import model.LadderCharacter;
-import model.Match;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import java.io.IOException;
-import java.lang.reflect.Type;
 import java.net.URL;
 
 
@@ -39,7 +36,7 @@ public class BnetApi<T> {
                 .host(config.region() + ".api.battle.net")
                 .addPathSegment(config.game());
 
-        switch(clazz.getName().replace("model.", "")) {
+        switch(clazz.getName().replaceAll("^model\\.(\\w*\\.)?", "")) {
             case "Profile": // https://us.api.battle.net/sc2/profile/4014615/1/LieZ/?locale=en_US&apikey=
                 urlBuilder.addPathSegment("profile")
                         .addPathSegment(config.profileNumber().toString())

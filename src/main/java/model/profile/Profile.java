@@ -1,9 +1,10 @@
-package model;
+package model.profile;
 
 import com.google.auto.value.AutoValue;
 import com.squareup.moshi.Json;
 import com.squareup.moshi.JsonAdapter;
 import com.squareup.moshi.Moshi;
+import model.achievements.Icon;
 import org.jetbrains.annotations.Nullable;
 
 @AutoValue
@@ -15,6 +16,9 @@ public abstract class Profile {
     @Json(name = "clanName") @Nullable public abstract String clanName();
     @Json(name = "clanTag") @Nullable public abstract String clanTag();
     @Json(name = "profilePath") public abstract String profilePath();
+    @Json(name = "portrait") public abstract Icon icon();
+    @Json(name = "career") public abstract Career career();
+    // @Json(name = "swarmLevels") public abstract SwarmLevels swarmLevels();
 
     public static Builder builder() {
         return new AutoValue_Profile.Builder();
@@ -28,6 +32,8 @@ public abstract class Profile {
         public abstract Builder setClanName(String value);
         public abstract Builder setClanTag(String value);
         public abstract Builder setProfilePath(String value);
+        public abstract Builder setIcon(Icon value);
+        public abstract Builder setCareer(Career value);
         public abstract Profile build();
     }
 

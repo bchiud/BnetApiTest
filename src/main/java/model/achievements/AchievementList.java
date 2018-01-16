@@ -1,4 +1,4 @@
-package model;
+package model.achievements;
 
 import com.google.auto.value.AutoValue;
 import com.squareup.moshi.Json;

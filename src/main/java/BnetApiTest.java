@@ -1,5 +1,6 @@
 import model.*;
-import model.Ladder;
+import model.ladder.Ladder;
+import model.matchHistory.MatchHistory;
 import utils.BnetApi;
 import utils.ConfigService;
 

@@ -1,6 +1,8 @@
 import model.*;
 import model.ladder.Ladder;
 import model.matchHistory.MatchHistory;
+import model.profile.Profile;
+import model.profile.ProfileAchievement;
 import utils.BnetApi;
 import utils.ConfigService;
 
@@ -14,11 +16,14 @@ public class BnetApiTest {
         */
         Config config = ConfigService.ConfigService();
         //
-        BnetApi<MatchHistory> mH = new BnetApi<MatchHistory>(MatchHistory.class, config);
-        System.out.println(mH.callApi());
+        BnetApi<MatchHistory> matchHistory = new BnetApi<MatchHistory>(MatchHistory.class, config);
+        System.out.println(matchHistory.callApi());
 
-        BnetApi<Ladder> lL = new BnetApi<Ladder>(Ladder.class, config);
-        System.out.println(lL.callApi());
+        BnetApi<Ladder> ladder = new BnetApi<Ladder>(Ladder.class, config);
+        System.out.println(ladder.callApi());
+
+        BnetApi<Profile> profile = new BnetApi<>(Profile.class, config);
+        System.out.println(profile.callApi());
 
         /*
         // TODO: this json has categories at bottom. need to revise data model

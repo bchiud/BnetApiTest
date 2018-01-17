@@ -1,4 +1,4 @@
-package model.achievements;
+package model.common;
 
 import com.google.auto.value.AutoValue;
 import com.squareup.moshi.Json;
@@ -7,6 +7,7 @@ import com.squareup.moshi.Moshi;
 
 @AutoValue
 public abstract class Icon {
+
     @Json(name = "x") public abstract Integer x();
     @Json(name = "y") public abstract Integer y();
     @Json(name = "w") public abstract Integer w();
@@ -14,7 +15,7 @@ public abstract class Icon {
     @Json(name = "offset") public abstract Integer offset();
     @Json(name = "url") public abstract String url();
 
-    public static Icon.Builder builder() {
+    public static Builder builder() {
         return new AutoValue_Icon.Builder();
     }
 

@@ -8,23 +8,24 @@ import com.squareup.moshi.Moshi;
 import java.util.List;
 
 @AutoValue
-public abstract class Rewards {
+public abstract class ProfileRewards {
+
     @Json(name = "selected") public abstract List<Long> selected();
     @Json(name = "earned") public abstract List<Long> earned();
 
     public static Builder Builder() {
-        return new AutoValue_Rewards.Builder();
+        return new AutoValue_ProfileRewards.Builder();
     }
 
     @AutoValue.Builder
     public static abstract class Builder {
         public abstract Builder setSelected(List<Long> value);
         public abstract Builder setEarned(List<Long> value);
-        public abstract Rewards build();
+        public abstract ProfileRewards build();
     }
 
-    public static JsonAdapter<Rewards> jsonAdapter(Moshi moshi) {
-        return new AutoValue_Rewards.MoshiJsonAdapter(moshi);
+    public static JsonAdapter<ProfileRewards> jsonAdapter(Moshi moshi) {
+        return new AutoValue_ProfileRewards.MoshiJsonAdapter(moshi);
     }
 
 }

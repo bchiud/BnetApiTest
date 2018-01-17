@@ -5,12 +5,13 @@ import com.squareup.moshi.Json;
 import com.squareup.moshi.JsonAdapter;
 import com.squareup.moshi.Moshi;
 import model.SwarmLevels;
-import model.achievements.Icon;
+import model.common.Icon;
 import org.jetbrains.annotations.Nullable;
 
 @AutoValue
 public abstract class Profile {
 
+    // TODO: best way to handle deeply nested auto value?
     @Json(name = "id") public abstract int id();
     @Json(name = "realm") public abstract int realm();
     @Json(name = "displayName") public abstract String displayName();
@@ -22,7 +23,7 @@ public abstract class Profile {
     @Json(name = "swarmLevels") public abstract SwarmLevels swarmLevels();
     @Json(name = "campaign") public abstract Campaign campaign();
     @Json(name = "season") public abstract Season season();
-    @Json(name = "rewards") public abstract Rewards rewards();
+    @Json(name = "rewards") public abstract ProfileRewards rewards();
     @Json(name = "achievements") public abstract ProfileAchievementList profileAchievementList();
 
     public static Builder builder() {
@@ -42,7 +43,7 @@ public abstract class Profile {
         public abstract Builder setSwarmLevels(SwarmLevels value);
         public abstract Builder setCampaign(Campaign value);
         public abstract Builder setSeason(Season value);
-        public abstract Builder setRewards(Rewards value);
+        public abstract Builder setRewards(ProfileRewards value);
         public abstract Builder setProfileAchievementList(ProfileAchievementList value);
         public abstract Profile build();
     }

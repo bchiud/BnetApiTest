@@ -10,6 +10,7 @@ import java.util.List;
 public abstract class AchievementList {
 
     @Json(name = "achievements") public abstract List<Achievement> cheevos();
+    @Json(name = "categories") public abstract List<AchievementCategory> achievementCategory();
 
     public static Builder builder() {
         return new AutoValue_AchievementList.Builder();
@@ -18,6 +19,7 @@ public abstract class AchievementList {
     @AutoValue.Builder
     public static abstract class Builder {
         public abstract Builder setCheevos(List<Achievement> value);
+        public abstract Builder setAchievementCategory(List<AchievementCategory> value);
         public abstract AchievementList build();
     }
 

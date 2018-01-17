@@ -4,7 +4,6 @@ import model.ladder.Ladder;
 import model.ladders.Ladders;
 import model.matchHistory.MatchHistory;
 import model.profile.Profile;
-import model.profile.ProfileRewards;
 import model.rewards.Rewards;
 import utils.BnetApi;
 import utils.ConfigService;
@@ -16,8 +15,7 @@ public class BnetApiTest {
         // todo: ship projects with genereated and out files?
 
         /*
-        get api key and locale
-        setup bnet params
+        get configurations from config.properties
         */
         Config config = ConfigService.ConfigService();
 

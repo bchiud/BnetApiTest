@@ -4,6 +4,8 @@ import com.google.auto.value.AutoValue;
 import com.squareup.moshi.Json;
 import com.squareup.moshi.JsonAdapter;
 import com.squareup.moshi.Moshi;
+import org.jetbrains.annotations.Nullable;
+
 import java.util.List;
 
 @AutoValue
@@ -12,7 +14,7 @@ public abstract class Season {
     @Json(name = "seasonID") public abstract int seasonId();
     @Json(name = "seasonYear") public abstract int seasonYear();
     @Json(name = "totalGamesThisSeason") public abstract int totalGamesThisSeason();
-    @Json(name = "stats") public abstract List<SeasonStats> seasonStats();
+    @Json(name = "stats") @Nullable public abstract List<SeasonStats> seasonStats();
 
     public static Builder builder() {
         return new AutoValue_Season.Builder();

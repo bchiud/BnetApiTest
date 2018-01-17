@@ -5,6 +5,7 @@ import com.squareup.moshi.Json;
 import com.squareup.moshi.JsonAdapter;
 import com.squareup.moshi.Moshi;
 import model.common.LadderCharacter;
+import org.jetbrains.annotations.Nullable;
 
 @AutoValue
 public abstract class LadderMember {
@@ -16,7 +17,7 @@ public abstract class LadderMember {
     @Json(name = "losses") public abstract Integer losses();
     @Json(name = "highestRank") public abstract Integer highestRank();
     @Json(name = "previousRank") public abstract Integer previousRank();
-    @Json(name = "favoriteRaceP1") public abstract String favoriteRaceP1();
+    @Json(name = "favoriteRaceP1") @Nullable public abstract String favoriteRaceP1();
 
     public static Builder builder() {
         return new AutoValue_LadderMember.Builder();
@@ -31,7 +32,7 @@ public abstract class LadderMember {
         public abstract Builder setLosses(Integer value);
         public abstract Builder setHighestRank(Integer value);
         public abstract Builder setPreviousRank(Integer value);
-        public abstract Builder setFavoriteRaceP1(String value);
+        public abstract Builder setFavoriteRaceP1(@Nullable String value);
         public abstract LadderMember build();
     }
 

@@ -10,11 +10,11 @@ import java.util.Optional;
 @AutoValue
 public abstract class Match {
 
-    @Json(name = "map") @Nullable public abstract String map();
-    @Json(name = "type") @Nullable abstract String type();
-    @Json(name = "decision") @Nullable public abstract String decision();
-    @Json(name = "speed") @Nullable public abstract String speed();
-    @Json(name = "date") @Nullable public abstract Long date();
+    @Json(name = "map") public abstract String map();
+    @Json(name = "type") abstract String type();
+    @Json(name = "decision") public abstract String decision();
+    @Json(name = "speed") public abstract String speed();
+    @Json(name = "date") public abstract Long date();
 
     public static Builder builder() {
         return new AutoValue_Match.Builder();
@@ -22,11 +22,11 @@ public abstract class Match {
 
     @AutoValue.Builder
     public abstract static class Builder {
-        public abstract Builder setMap(@Nullable String value);
-        public abstract Builder setType(@Nullable String value);
-        public abstract Builder setDecision(@Nullable String value);
-        public abstract Builder setSpeed(@Nullable String value);
-        public abstract Builder setDate(@Nullable Long value);
+        public abstract Builder setMap(String value);
+        public abstract Builder setType(String value);
+        public abstract Builder setDecision(String value);
+        public abstract Builder setSpeed(String value);
+        public abstract Builder setDate(Long value);
         public abstract Match build();
     }
 

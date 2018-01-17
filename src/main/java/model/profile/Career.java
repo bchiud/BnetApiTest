@@ -11,7 +11,7 @@ public abstract class Career {
     @Json(name = "terranWins") public abstract int terranWins();
     @Json(name = "protossWins") public abstract int protossWins();
     @Json(name = "zergWins") public abstract int zergWins();
-    @Json(name = "highest1v1RANK") public abstract String highest1v1RANK();
+    @Json(name = "highest1v1Rank") public abstract String highest1v1Rank();
     @Json(name = "highestTeamRank") public abstract String highestTeamRank();
     @Json(name = "seasonTotalGames") public abstract int seasonTotalGames();
     @Json(name = "careerTotalGames") public abstract int careerTotalGames();
@@ -26,7 +26,7 @@ public abstract class Career {
         public abstract Builder setTerranWins(int value);
         public abstract Builder setProtossWins(int value);
         public abstract Builder setZergWins(int value);
-        public abstract Builder setHighest1v1RANK(String value);
+        public abstract Builder setHighest1v1Rank(String value);
         public abstract Builder setHighestTeamRank(String value);
         public abstract Builder setSeasonTotalGames(int value);
         public abstract Builder setCareerTotalGames(int value);

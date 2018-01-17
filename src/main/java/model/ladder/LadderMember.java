@@ -4,6 +4,7 @@ import com.google.auto.value.AutoValue;
 import com.squareup.moshi.Json;
 import com.squareup.moshi.JsonAdapter;
 import com.squareup.moshi.Moshi;
+import model.common.LadderCharacter;
 
 @AutoValue
 public abstract class LadderMember {

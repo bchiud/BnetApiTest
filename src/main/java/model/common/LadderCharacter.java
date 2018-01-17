@@ -1,4 +1,4 @@
-package model.ladder;
+package model.common;
 
 import com.google.auto.value.AutoValue;
 import com.squareup.moshi.Json;

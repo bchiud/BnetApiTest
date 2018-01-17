@@ -19,7 +19,7 @@ public abstract class Profile {
     @Json(name = "clanTag") @Nullable public abstract String clanTag();
     @Json(name = "profilePath") public abstract String profilePath();
     @Json(name = "portrait") public abstract Icon icon();
-    // @Json(name = "career") public abstract Career career();
+    @Json(name = "career") public abstract Career career();
     @Json(name = "swarmLevels") public abstract SwarmLevels swarmLevels();
     @Json(name = "campaign") public abstract Campaign campaign();
     @Json(name = "season") public abstract Season season();
@@ -39,7 +39,7 @@ public abstract class Profile {
         public abstract Builder setClanTag(String value);
         public abstract Builder setProfilePath(String value);
         public abstract Builder setIcon(Icon value);
-        // public abstract Builder setCareer(Career value);
+        public abstract Builder setCareer(Career value);
         public abstract Builder setSwarmLevels(SwarmLevels value);
         public abstract Builder setCampaign(Campaign value);
         public abstract Builder setSeason(Season value);

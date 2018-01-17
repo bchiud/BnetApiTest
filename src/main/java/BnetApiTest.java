@@ -1,6 +1,7 @@
 import model.*;
 import model.achievements.AchievementList;
 import model.ladder.Ladder;
+import model.ladders.Ladders;
 import model.matchHistory.MatchHistory;
 import model.profile.Profile;
 import model.profile.ProfileRewards;
@@ -23,8 +24,8 @@ public class BnetApiTest {
         BnetApi<Profile> profile = new BnetApi<>(Profile.class, config);
         System.out.println(profile.callApi());
 
-        // BnetApi<Ladders> ladders = new BnetApi<Ladders>(Ladders.class, config);
-        // System.out.println(ladders.callApi());
+        BnetApi<Ladders> ladders = new BnetApi<Ladders>(Ladders.class, config);
+        System.out.println(ladders.callApi());
 
         BnetApi<MatchHistory> matchHistory = new BnetApi<MatchHistory>(MatchHistory.class, config);
         System.out.println(matchHistory.callApi());
